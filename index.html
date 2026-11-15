@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>DURO WINDOWS AND DOORS | Architectural Fenestration Systems</title>
+  <meta name="description" content="Precision engineered uPVC Window Systems and Architectural System Aluminium Windows by DURO. German engineering standards with classic architectural design.">
+  
+  <!-- Google Fonts: Playfair Display (Classic Headings) & Inter (Technical Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. GLOBAL STICKY HEADER & RESPONSIVE NAVIGATION
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-logo" aria-label="DURO Windows & Doors">
+        <div class="brand-symbol"></div>
+        <div class="brand-text">
+          <span class="brand-title">DURO</span>
+          <span class="brand-sub">WINDOWS & DOORS</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (Hidden <= 1024px to prevent tablet overflow) -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="#products" class="nav-link">Product Systems</a>
+        <a href="#comparison" class="nav-link">Technical Matrix</a>
+        <a href="#engineering" class="nav-link">Engineering</a>
+        <a href="#gallery" class="nav-link">Selected Projects</a>
+        <a href="#inquiry" class="nav-link">Consultation</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#inquiry" class="btn btn-primary">
+          <span>Request Proposal</span>
+          <span>→</span>
+        </a>
+
+        <!-- Mobile & Tablet Hamburger Button (Active <= 1024px) -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile & Tablet Drawer Menu -->
+  <div id="mobileDrawer" class="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <div class="brand-logo">
+          <div class="brand-symbol"></div>
+          <div class="brand-text">
+            <span class="brand-title">DURO</span>
+            <span class="brand-sub">WINDOWS & DOORS</span>
+          </div>
+        </div>
+        <button id="mobileCloseBtn" class="mobile-close-btn" type="button" aria-label="Close Menu">✕</button>
+      </div>
+
+      <ul class="mobile-nav-links">
+        <li><a href="#products">Product Systems</a></li>
+        <li><a href="#comparison">Technical Matrix</a></li>
+        <li><a href="#engineering">Engineering Principles</a></li>
+        <li><a href="#gallery">Selected Projects</a></li>
+        <li><a href="#inquiry">Consultation & Estimates</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <p><strong>DURO Engineering Studio</strong><br>Pune, Maharashtra<br>Direct: +91 20 4911 8800</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2. HERO SECTION - BALANCED CLASSIC ARCHITECTURAL LAYOUT
+       ======================================================================== -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left: Classic Editorial Typography & Technical Benchmarks -->
+        <div class="hero-left">
+          <div class="classic-tag">ARCHITECTURAL FENESTRATION SYSTEMS</div>
+          <h1 class="h1-title">Architectural Elegance.<br>Engineered Performance.</h1>
+          <p class="lead-text hero-desc">
+            Bespoke fenestration engineered for seamless transitions between interior spaces and natural environments. Featuring German-profile multi-chamber uPVC and high-tolerance System Aluminium.
+          </p>
+
+          <!-- Interactive Product Toggle -->
+          <div class="hero-product-toggles">
+            <button id="toggleUpvc" class="product-toggle-btn active" type="button">
+              01 · Precision uPVC
+            </button>
+            <button id="toggleAlu" class="product-toggle-btn" type="button">
+              02 · System Aluminium
+            </button>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">
+              <span>Explore Products</span>
+              <span>→</span>
+            </a>
+            <a href="#comparison" class="btn btn-secondary">
+              <span>View Technical Matrix</span>
+            </a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <div class="metric-value">0.82 <span>Uw</span></div>
+              <div class="metric-label">Thermal Efficiency (W/m²K)</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">45 <span>dB</span></div>
+              <div class="metric-label">Acoustic Sound Insulation</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">18 <span>mm</span></div>
+              <div class="metric-label">Ultra-Slim Interlock Profile</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Architectural Frame Container -->
+        <div class="hero-right">
+          <div class="arch-frame-container">
+            <div class="arch-frame-inner">
+              
+              <div id="heroTopBadge" class="arch-frame-badge">
+                GERMAN PVC-U WINDOW SYSTEM
+              </div>
+
+              <div class="arch-frame-image-wrapper">
+                <img id="heroWindowImage" src="assets/schuco-kitchen-reference.png" alt="DURO Architectural Window Installation in Modern Residence">
+              </div>
+
+              <!-- Technical Bar (Below image on mobile/tablet to preserve 100% photo visibility) -->
+              <div class="arch-frame-meta">
+                <div class="arch-meta-cell">
+                  <span class="arch-meta-lbl">THERMAL</span>
+                  <span id="metaThermal" class="arch-meta-val">Uw ≤ 0.85 W/m²K</span>
+                </div>
+                <div class="arch-meta-cell">
+                  <span class="arch-meta-lbl">DESIGN</span>
+                  <span id="metaDesign" class="arch-meta-val">Multi-Chamber Fusion</span>
+                </div>
+                <div class="arch-meta-cell">
+                  <span class="arch-meta-lbl">ACOUSTIC</span>
+                  <span id="metaAcoustic" class="arch-meta-val">45 dB Reduction</span>
+                </div>
+                <div class="arch-meta-cell">
+                  <span class="arch-meta-lbl">SECURITY</span>
+                  <span id="metaSecurity" class="arch-meta-val">RC2 Multi-Point Bolts</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="arch-frame-footer">
+              <span id="heroSeriesName" class="series-name">DURO · Multi-Chamber uPVC Series</span>
+              <span id="heroStandardCode">DIN EN 12608 CLASS A</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. THE 2 CORE PRODUCTS (DEDICATED SYSTEMS)
+       ======================================================================== -->
+  <section id="products" class="products-section">
+    <div class="container">
+      
+      <div class="section-head-split">
+        <div>
+          <div class="classic-tag">PRODUCT ARCHITECTURE</div>
+          <h2 class="h2-title">Two Distinct Engineering Disciplines</h2>
+        </div>
+        <p class="lead-text" style="max-width: 480px;">
+          Tailored to the structural demands of luxury residences, high-rise buildings, and contemporary villas.
+        </p>
+      </div>
+
+      <div class="products-deck">
+        
+        <!-- PRODUCT 1: UPVC WINDOWS -->
+        <article class="product-card">
+          <div class="product-card-top">
+            <span class="product-index">SYSTEM 01</span>
+            <span class="product-standard">DIN EN 12608 · CLASS A GERMAN STANDARD</span>
+          </div>
+          
+          <div class="product-img-box">
+            <img src="assets/schuco-kitchen-reference.png" alt="DURO uPVC Precision Window System">
+            <span class="product-img-tag">MULTI-CHAMBER THERMAL CORE</span>
+          </div>
+
+          <div class="product-card-content">
+            <h3 class="product-card-title">DURO uPVC Window Systems</h3>
+            <p class="product-card-desc">
+              Engineered with German multi-chamber profile geometry to deliver outstanding thermal and acoustic insulation. Equipped with heavy-gauge galvanized steel reinforcement and fusion-welded airtight seams that resist coastal humidity and tropical sunlight.
+            </p>
+
+            <div class="product-spec-table">
+              <div>
+                <span class="spec-lbl">Thermal Transmittance</span>
+                <span class="spec-val">Uw 0.82 – 1.10 W/m²K</span>
+              </div>
+              <div>
+                <span class="spec-lbl">Acoustic Attenuation</span>
+                <span class="spec-val">Up to 45 dB (Rw)</span>
+              </div>
+              <div>
+                <span class="spec-lbl">Profile Depth</span>
+                <span class="spec-val">70mm – 82mm Class A</span>
+              </div>
+              <div>
+                <span class="spec-lbl">Corrosion Lifecycle</span>
+                <span class="spec-val" style="color: var(--color-primary);">100% Non-Corrosive</span>
+              </div>
+            </div>
+
+            <ul class="product-bullets">
+              <li>6-chamber profile design eliminates heat transfer and drafts</li>
+              <li>Continuous dual and triple EPDM compression weather gaskets</li>
+              <li>Tropical compound formulation prevents yellowing and UV degradation</li>
+              <li>Typologies: Tilt-and-Turn, Side-Hung Casement, Sliding Patio, and Fixed Glass</li>
+            </ul>
+
+            <div class="product-card-actions">
+              <a href="#inquiry" class="btn btn-primary">
+                <span>Configure uPVC</span>
+                <span>→</span>
+              </a>
+              <a href="#comparison" class="btn btn-secondary">Specifications</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PRODUCT 2: SYSTEM ALUMINIUM WINDOWS -->
+        <article class="product-card">
+          <div class="product-card-top">
+            <span class="product-index">SYSTEM 02</span>
+            <span class="product-standard">EN AW-6063 T6 · THERMAL BREAK ARCHITECTURE</span>
+          </div>
+
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85" alt="DURO System Aluminium Minimal Sliding Windows">
+            <span class="product-img-tag">18MM ULTRA-SLIM SIGHTLINE</span>
+          </div>
+
+          <div class="product-card-content">
+            <h3 class="product-card-title">DURO System Aluminium Windows</h3>
+            <p class="product-card-desc">
+              Architectural-grade aluminium systems developed for monumental glass apertures. Engineered with structural polyamide thermal breaks, concealed drainage paths, and ultra-slim interlocks as narrow as 18mm to provide maximum natural light and panoramic vistas.
+            </p>
+
+            <div class="product-spec-table">
+              <div>
+                <span class="spec-lbl">Visible Sightline</span>
+                <span class="spec-val">18mm Ultra-Slim Interlock</span>
+              </div>
+              <div>
+                <span class="spec-lbl">Maximum Panel Height</span>
+                <span class="spec-val">Up to 4.5 Meters</span>
+              </div>
+              <div>
+                <span class="spec-lbl">Sash Load Capacity</span>
+                <span class="spec-val">400 kg Stainless Carriage</span>
+              </div>
+              <div>
+                <span class="spec-lbl">Wind Load Rating</span>
+                <span class="spec-val" style="color: var(--color-primary);">Class C5 High-Rise Certified</span>
+              </div>
+            </div>
+
+            <ul class="product-bullets">
+              <li>Integrated polyamide thermal break prevents condensation and thermal bridging</li>
+              <li>Concealed outer frames for up to 98% visible glass surface ratio</li>
+              <li>Precision stainless steel roller tracks for effortless glide movement</li>
+              <li>Typologies: Minimalist Sliding, Heavy Lift & Slide, Flush Casement, Pivot Doors</li>
+            </ul>
+
+            <div class="product-card-actions">
+              <a href="#inquiry" class="btn btn-primary">
+                <span>Configure Aluminium</span>
+                <span>→</span>
+              </a>
+              <a href="#comparison" class="btn btn-secondary">Specifications</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. TECHNICAL MATRIX: COMPARISON (DEEP FOREST GREEN #0f382c)
+       ======================================================================== -->
+  <section id="comparison" class="comparison-section">
+    <div class="container">
+      
+      <div class="classic-tag inverted">TECHNICAL COMPARISON MATRIX</div>
+      <h2 class="h2-title inverted">Material Performance Specifications</h2>
+      <p class="lead-text inverted" style="max-width: 620px; margin-top: 0.85rem;">
+        An engineering comparison detailing DURO German-profile uPVC and DURO High-Tolerance System Aluminium across core architectural benchmarks.
+      </p>
+
+      <div class="table-scroll-hint">
+        ← Swipe horizontally to compare all specifications →
+      </div>
+
+      <div class="table-responsive-wrapper">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Engineering Benchmark</th>
+              <th class="col-system" style="width: 36%;">DURO uPVC Window Systems</th>
+              <th class="col-system" style="width: 36%;">DURO System Aluminium Windows</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="matrix-prop-title">Thermal Insulation (Uw)</div>
+                <div class="matrix-prop-sub">Overall heat transfer coefficient</div>
+              </td>
+              <td>
+                <span class="matrix-val highlight">0.82 – 1.10 W/m²K</span>
+                <div class="matrix-prop-sub">Superior multi-chamber insulation barrier</div>
+              </td>
+              <td>
+                <span class="matrix-val">1.20 – 1.60 W/m²K</span>
+                <div class="matrix-prop-sub">Enhanced with polyamide thermal breaks</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="matrix-prop-title">Acoustic Reduction (Rw)</div>
+                <div class="matrix-prop-sub">Decibel sound attenuation</div>
+              </td>
+              <td>
+                <span class="matrix-val highlight">38 – 45 dB</span>
+                <div class="matrix-prop-sub">Optimal mass and continuous compression gaskets</div>
+              </td>
+              <td>
+                <span class="matrix-val">36 – 42 dB</span>
+                <div class="matrix-prop-sub">Calibrated with acoustic laminated glazing</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="matrix-prop-title">Visible Sightlines</div>
+                <div class="matrix-prop-sub">Frame width at vertical interlocks</div>
+              </td>
+              <td>
+                <span class="matrix-val">58mm – 75mm</span>
+                <div class="matrix-prop-sub">Substantial architectural presence</div>
+              </td>
+              <td>
+                <span class="matrix-val highlight">18mm – 28mm (Ultra-Slim)</span>
+                <div class="matrix-prop-sub">Maximizes daylight with minimal framing</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="matrix-prop-title">Maximum Panel Dimensions</div>
+                <div class="matrix-prop-sub">Sash height and span capacity</div>
+              </td>
+              <td>
+                <span class="matrix-val">Up to 2.6m Sash Height</span>
+                <div class="matrix-prop-sub">Internal galvanized steel reinforcement</div>
+              </td>
+              <td>
+                <span class="matrix-val highlight">Up to 4.5m Sash Height</span>
+                <div class="matrix-prop-sub">High structural rigidity for expansive glass walls</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="matrix-prop-title">Corrosion & Climate Durability</div>
+                <div class="matrix-prop-sub">Sea air, monsoon & UV stability</div>
+              </td>
+              <td>
+                <span class="matrix-val highlight">100% Non-Corrosive</span>
+                <div class="matrix-prop-sub">Impervious to coastal humidity and salt air</div>
+              </td>
+              <td>
+                <span class="matrix-val">Qualicoat Class 2 Anodized / Coated</span>
+                <div class="matrix-prop-sub">Marine-grade architectural finish</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="matrix-prop-title">Recommended Architectural Fit</div>
+                <div class="matrix-prop-sub">Ideal project typologies</div>
+              </td>
+              <td>
+                <span class="matrix-val">Private Residences, High-Acoustic Zones, Energy-Positive Homes</span>
+              </td>
+              <td>
+                <span class="matrix-val">Minimalist Glass Villas, Penthouses, Monumental Facades</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. ENGINEERING PRINCIPLES (3-COLUMN MINIMAL GRID)
+       ======================================================================== -->
+  <section id="engineering" class="pillars-section">
+    <div class="container">
+      
+      <div class="classic-tag">ENGINEERING PRINCIPLES</div>
+      <h2 class="h2-title">Designed for Quiet, Energy-Efficient Spaces</h2>
+
+      <div class="pillars-grid">
+        
+        <div class="pillar-col">
+          <span class="pillar-code">01 / THERMAL ENVELOPE</span>
+          <h3 class="pillar-heading">Hermetic Thermal Barrier</h3>
+          <p class="pillar-desc">
+            Multi-chamber profiles and polyamide thermal barriers significantly reduce heating and cooling HVAC loads, preventing temperature bridging and internal condensation.
+          </p>
+        </div>
+
+        <div class="pillar-col">
+          <span class="pillar-code">02 / ACOUSTIC CONTROL</span>
+          <h3 class="pillar-heading">Precision Noise Damping</h3>
+          <p class="pillar-desc">
+            Continuous dual and triple EPDM compression gaskets combined with multi-point perimeter locks create hermetic chamber seals delivering up to 45dB acoustic suppression.
+          </p>
+        </div>
+
+        <div class="pillar-col">
+          <span class="pillar-code">03 / STRUCTURAL INTEGRITY</span>
+          <h3 class="pillar-heading">Certified Wind Load Class C5</h3>
+          <p class="pillar-desc">
+            High-tensile structural aluminium and internal galvanized steel reinforcement provide high resistance against wind load and intense weather conditions in high-rise applications.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. SELECTED INSTALLATIONS GALLERY (Real Living Spaces)
+       ======================================================================== -->
+  <section id="gallery" class="gallery-section">
+    <div class="container">
+      
+      <div class="section-head-split">
+        <div>
+          <div class="classic-tag">SELECTED INSTALLATIONS</div>
+          <h2 class="h2-title">Framing Modern Living Spaces</h2>
+        </div>
+        <p class="lead-text" style="max-width: 480px;">
+          Real architectural projects built with DURO uPVC and System Aluminium systems.
+        </p>
+      </div>
+
+      <div class="gallery-mosaic">
+        
+        <div class="gallery-item col-8">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85" alt="Floor to ceiling glass sliding doors in luxury home">
+          <div class="gallery-meta-bar">
+            <h4 class="gallery-project-name">The Glass Pavilion Residence</h4>
+            <div class="gallery-project-sub">System Aluminium · 18mm Slimline Sliding</div>
+          </div>
+        </div>
+
+        <div class="gallery-item col-4">
+          <img src="assets/schuco-kitchen-reference.png" alt="German uPVC Window System in Minimalist Kitchen">
+          <div class="gallery-meta-bar">
+            <h4 class="gallery-project-name">Culinary Terrace Suite</h4>
+            <div class="gallery-project-sub">German PVC-U System · Multi-Point Casement</div>
+          </div>
+        </div>
+
+        <div class="gallery-item col-5">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="Modern bedroom with minimalist picture windows">
+          <div class="gallery-meta-bar">
+            <h4 class="gallery-project-name">Forest Retreat Villa</h4>
+            <div class="gallery-project-sub">uPVC Acoustic Series · 45dB Sound Rating</div>
+          </div>
+        </div>
+
+        <div class="gallery-item col-7">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=85" alt="Expansive living room with panoramic glass wall">
+          <div class="gallery-meta-bar">
+            <h4 class="gallery-project-name">Skyline Horizon Penthouse</h4>
+            <div class="gallery-project-sub">System Aluminium · Panoramic Lift & Slide</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. CONSULTATION & INQUIRY SUITE (PERFECTLY ALIGNED & EXECUTIVE)
+       ======================================================================== -->
+  <section id="inquiry" class="inquiry-section">
+    <div class="container">
+      
+      <div class="inquiry-suite-grid">
+        
+        <!-- Left Column: Direct Contact Information & Turnaround Guarantee -->
+        <div class="inquiry-info-column">
+          <div class="classic-tag inverted">CONSULTATION & PROPOSALS</div>
+          <h2 class="h2-title">Discuss Your Architectural Requirements</h2>
+          <p>
+            Whether planning a private luxury residence, high-rise development, or commercial facade, our technical fenestration specialists assist with custom opening schedules, wind load verification, CAD/BIM details, and accurate cost estimates.
+          </p>
+
+          <div class="direct-contact-card">
+            <div class="contact-channel-row">
+              <div class="contact-icon-box">📞</div>
+              <div class="contact-channel-details">
+                <span class="contact-channel-title">Direct Consultation Line</span>
+                <span class="contact-channel-val">+91 20 4911 8800</span>
+                <span class="contact-channel-note">Monday – Saturday, 9:00 AM – 7:00 PM IST</span>
+              </div>
+            </div>
+
+            <div class="contact-channel-row">
+              <div class="contact-icon-box" style="background-color: #25D366;">💬</div>
+              <div class="contact-channel-details">
+                <span class="contact-channel-title">Instant WhatsApp Helpdesk</span>
+                <span class="contact-channel-val">+91 98000 00000</span>
+                <span class="contact-channel-note">Direct technical chat & quick photo review</span>
+              </div>
+            </div>
+
+            <div class="contact-channel-row">
+              <div class="contact-icon-box">✉️</div>
+              <div class="contact-channel-details">
+                <span class="contact-channel-title">Specification Department</span>
+                <span class="contact-channel-val">specification@durowindows.com</span>
+                <span class="contact-channel-note">Send drawings for comprehensive take-off schedules</span>
+              </div>
+            </div>
+
+            <div class="contact-channel-row">
+              <div class="contact-icon-box">📍</div>
+              <div class="contact-channel-details">
+                <span class="contact-channel-title">Experience Studio & Works</span>
+                <span class="contact-channel-val">DURO Systems Centre, Pune, India</span>
+                <span class="contact-channel-note">Full-scale operational sample installations available</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.8125rem; color: #b1c4b9; display: flex; align-items: center; gap: 0.6rem;">
+            <span style="color: #6ce48c; font-size: 1.1rem; font-weight: bold;">✓</span>
+            <span>Turnaround: Detailed technical proposals delivered within 24–48 hours</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Precision Aligned Form Card -->
+        <div class="inquiry-form-container">
+          <h3 class="form-header-title">Request a Specification Package</h3>
+          <p class="form-header-sub">Complete the details below or transmit your requirements directly via WhatsApp.</p>
+
+          <form id="projectInquiryForm" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms Static Form Key (Optional for zero-backend email delivery) -->
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="from_name" value="DURO Windows Portal">
+            <input type="hidden" name="subject" value="New Architectural Fenestration Inquiry">
+
+            <div class="form-grid-2">
+              <div class="form-group-item">
+                <label class="form-label-text" for="clientName">Full Name *</label>
+                <input type="text" id="clientName" name="name" class="form-input-field" placeholder="e.g. Ar. Ananya Sharma" required>
+              </div>
+              <div class="form-group-item">
+                <label class="form-label-text" for="clientCompany">Company / Practice</label>
+                <input type="text" id="clientCompany" name="company" class="form-input-field" placeholder="Studio / Firm Name">
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group-item">
+                <label class="form-label-text" for="clientEmail">Email Address *</label>
+                <input type="email" id="clientEmail" name="email" class="form-input-field" placeholder="architect@practice.com" required>
+              </div>
+              <div class="form-group-item">
+                <label class="form-label-text" for="clientPhone">Phone Number *</label>
+                <input type="tel" id="clientPhone" name="phone" class="form-input-field" placeholder="+91 98000 00000" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group-item">
+                <label class="form-label-text" for="clientCity">Project City / Location</label>
+                <input type="text" id="clientCity" name="city" class="form-input-field" placeholder="e.g. Pune, Mumbai, Goa">
+              </div>
+              <div class="form-group-item">
+                <label class="form-label-text" for="clientStage">Project Stage</label>
+                <select id="clientStage" name="stage" class="form-select-field">
+                  <option value="Concept / Design Stage">Concept / Design Stage</option>
+                  <option value="Under Construction / Openings Ready">Under Construction / Openings Ready</option>
+                  <option value="Renovation / Replacement">Renovation / Replacement</option>
+                  <option value="Tender / Cost Estimation">Tender / Cost Estimation</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-item">
+              <label class="form-label-text">System of Interest *</label>
+              <div class="product-selector-group">
+                <label class="selector-pill">
+                  <input type="radio" name="productInterest" value="uPVC Windows" checked>
+                  <span>01 uPVC Windows</span>
+                </label>
+                <label class="selector-pill">
+                  <input type="radio" name="productInterest" value="System Aluminium">
+                  <span>02 System Aluminium</span>
+                </label>
+                <label class="selector-pill">
+                  <input type="radio" name="productInterest" value="Both Systems">
+                  <span>Both Systems</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group-item">
+              <label class="form-label-text" for="projectScope">Project Scope & Opening Specifications</label>
+              <textarea id="projectScope" name="message" class="form-textarea-field" rows="3" placeholder="Describe approximate openings, dimensions, acoustic requirements, or drawing references..."></textarea>
+            </div>
+
+            <div class="form-action-buttons">
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <span>Submit Specification Request</span>
+                <span>→</span>
+              </button>
+
+              <button type="button" id="sendWhatsAppBtn" class="btn btn-whatsapp" style="width: 100%;">
+                <span>💬 Inquire via WhatsApp (Instant Alert)</span>
+              </button>
+            </div>
+
+            <div id="formStatusMsg" style="display: none; margin-top: 1.25rem; padding: 1rem; background-color: #f1f8f3; border: 1px solid #c9e8d2; color: #164e3e; font-size: 0.8125rem; text-align: center;">
+            </div>
+
+            <div class="notification-badge-notice">
+              <span>🔔</span>
+              <span><strong>Static Site Tip:</strong> Clicking "Inquire via WhatsApp" sends the inquiry directly to your phone instantly. For email alerts, Web3Forms is pre-integrated.</span>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. GLOBAL FOOTER (CHARCOAL #11161d THEME)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-columns">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 1.25rem;">
+            <div class="brand-symbol"></div>
+            <div class="brand-text">
+              <span class="brand-title" style="color: #ffffff;">DURO</span>
+              <span class="brand-sub">WINDOWS & DOORS</span>
+            </div>
+          </div>
+          <p style="color: #838e9a; font-size: 0.875rem; max-width: 320px; line-height: 1.65;">
+            Architectural fenestration systems combining German engineering standards with classic design. Specializing exclusively in multi-chamber uPVC and structural System Aluminium.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-section-title">Product Systems</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#products">uPVC Window Systems</a></li>
+            <li><a href="#products">System Aluminium Windows</a></li>
+            <li><a href="#comparison">Technical Matrix</a></li>
+            <li><a href="#engineering">Engineering Principles</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-section-title">Technical Resources</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#inquiry">AutoCAD Profile Sections (.dwg)</a></li>
+            <li><a href="#inquiry">BIM Revit Models (.rvt)</a></li>
+            <li><a href="#inquiry">Acoustic & Thermal Test Reports</a></li>
+            <li><a href="#inquiry">Wind Load Calculation Schedules</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-section-title">Technical Support</h4>
+          <p style="color: #838e9a; font-size: 0.875rem; line-height: 1.65; margin-bottom: 1rem;">
+            DURO Architectural Centre<br>
+            Direct Helpline: +91 20 4911 8800<br>
+            WhatsApp: +91 98000 00000<br>
+            Email: specification@durowindows.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 DURO WINDOWS & DOORS. All rights reserved. Architectural Fenestration.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Technical Specifications</a>
+          <a href="#">Imprint</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Persistent Floating WhatsApp Action -->
+  <a href="https://wa.me/912049118800" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp with DURO Engineering">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 2C6.505 2 2.016 6.488 2.016 12.016c0 1.956.565 3.782 1.542 5.328L2 22l4.832-1.523c1.479.882 3.208 1.393 5.199 1.393 5.526 0 10.016-4.488 10.016-10.016C22.047 6.488 17.557 2 12.031 2zm0 18.232c-1.745 0-3.364-.492-4.739-1.344l-.34-.211-2.869.904.918-2.793-.231-.365c-.947-1.492-1.46-3.236-1.46-5.067 0-4.57 3.719-8.289 8.289-8.289 4.57 0 8.289 3.719 8.289 8.289 0 4.57-3.719 8.289-8.289 8.289zm4.544-6.195c-.249-.125-1.473-.727-1.701-.81-.229-.083-.395-.125-.561.125-.166.249-.644.81-.789.977-.145.166-.291.187-.54.062-.249-.125-1.052-.388-2.003-1.237-.741-.661-1.241-1.477-1.386-1.726-.145-.249-.015-.383.109-.507.112-.112.249-.291.374-.436.125-.145.166-.249.249-.415.083-.166.042-.311-.021-.436-.062-.125-.561-1.35-.769-1.85-.202-.487-.408-.42-.561-.428l-.478-.008c-.166 0-.436.062-.664.311-.229.249-.873.853-.873 2.079s.894 2.41 1.019 2.576c.125.166 1.758 2.684 4.258 3.764.595.257 1.06.41 1.423.526.598.19 1.142.163 1.572.099.479-.071 1.473-.602 1.681-1.184.208-.582.208-1.08.145-1.184-.062-.104-.229-.166-.478-.291z"/>
+    </svg>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+    ↑
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
