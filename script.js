@@ -1,23 +1,35 @@
 /**
- * DURO WINDOWS & DOORS - Classic Architectural Fenestration
- * Client Interactions, Responsive Drawer, & Form Notification Handler
+ * DURO WINDOWS & DOORS - Architectural Fenestration
+ * Client Interactions, Animations, Responsive Drawer & Form Notification Handlers
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Mobile Navigation Drawer Toggle
+  // 1. Sticky Header Elevation on Scroll
+  const siteHeader = document.getElementById('siteHeader');
+  function handleHeaderScroll() {
+    if (window.scrollY > 30) {
+      siteHeader?.classList.add('scrolled');
+    } else {
+      siteHeader?.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+  handleHeaderScroll();
+
+  // 2. Mobile Navigation Drawer Toggle
   const mobileToggleBtn = document.getElementById('mobileMenuBtn');
   const mobileCloseBtn = document.getElementById('mobileCloseBtn');
   const mobileDrawer = document.getElementById('mobileDrawer');
   const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
 
   function openMobileMenu() {
-    mobileDrawer.classList.add('open');
+    mobileDrawer?.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMobileMenu() {
-    mobileDrawer.classList.remove('open');
+    mobileDrawer?.classList.remove('open');
     document.body.style.overflow = '';
   }
 
@@ -33,21 +45,94 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeMobileMenu);
   });
 
-  // 2. Back to Top Button
+  // 3. Back to Top Button
   const backToTopBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 450) {
-      backToTopBtn.classList.add('visible');
-    } else {
-      backToTopBtn.classList.remove('visible');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 450) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // 4. Scroll Reveal Engine (IntersectionObserver)
+  const revealElements = document.querySelectorAll('.reveal-up, .reveal-fade');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback for older browsers
+    revealElements.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // 5. Animated Number Counters
+  const counterElements = document.querySelectorAll('.counter[data-target]');
+  let countersAnimated = false;
+
+  function animateCounters() {
+    counterElements.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target') || '0', 10);
+      const duration = 1600; // ms
+      const startTime = performance.now();
+
+      function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Easing out cubic
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentVal = Math.floor(easeOut * target);
+
+        counter.textContent = currentVal.toString();
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target.toString();
+        }
+      }
+
+      requestAnimationFrame(updateCounter);
+    });
+  }
+
+  if (counterElements.length > 0 && 'IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countersAnimated) {
+          countersAnimated = true;
+          animateCounters();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const heroMetrics = document.querySelector('.hero-metrics');
+    if (heroMetrics) {
+      counterObserver.observe(heroMetrics);
     }
-  });
+  } else {
+    animateCounters();
+  }
 
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // 3. Hero Product Line Switcher (uPVC ↔ System Aluminium)
+  // 6. Hero Product Line Switcher with Smooth Crossfade Transition
   const toggleUpvc = document.getElementById('toggleUpvc');
   const toggleAlu = document.getElementById('toggleAlu');
   const heroImage = document.getElementById('heroWindowImage');
@@ -63,56 +148,68 @@ document.addEventListener('DOMContentLoaded', () => {
   const productsData = {
     upvc: {
       image: 'assets/schuco-kitchen-reference.png',
-      badge: 'GERMAN PVC-U WINDOW SYSTEM',
-      series: 'DURO · Multi-Chamber uPVC Series',
-      standard: 'DIN EN 12608 CLASS A',
+      badge: 'GERMAN PRECISION PVC-U SYSTEM',
+      series: 'DURO · Acoustic & Multi-Chamber uPVC',
+      standard: 'Superior Sound & Climate Shield',
       meta: {
-        thermal: 'Uw ≤ 0.85 W/m²K',
+        acoustic: '45 dB Noise Shield',
         design: 'Multi-Chamber Fusion',
-        acoustic: '45 dB Reduction',
-        security: 'RC2 Multi-Point Bolts'
+        thermal: 'Tropical Heat Barrier',
+        security: 'Multi-Point Locking'
       }
     },
     alu: {
       image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85',
       badge: 'ARCHITECTURAL SYSTEM ALUMINIUM',
       series: 'DURO · Slimline Aluminium Series',
-      standard: 'EN AW-6063 T6 THERMAL BREAK',
+      standard: 'Expansive Views & Structural Strength',
       meta: {
-        thermal: 'Polyamide Thermal Break',
-        design: '18mm Ultra-Slim Interlock',
         acoustic: '42 dB Acoustic Glaze',
-        security: 'Heavy-Duty Multi-Lock'
+        design: '18mm Ultra-Slim Interlock',
+        thermal: 'Polyamide Thermal Break',
+        security: 'Heavy-Duty Carriage & Lock'
       }
     }
   };
 
+  let isSwitching = false;
+
   function setHeroProduct(type) {
-    if (type === 'upvc') {
-      toggleUpvc.classList.add('active');
-      toggleAlu.classList.remove('active');
-      const data = productsData.upvc;
-      heroImage.src = data.image;
-      heroBadge.textContent = data.badge;
-      heroSeriesName.textContent = data.series;
-      heroStandardCode.textContent = data.standard;
-      metaThermal.textContent = data.meta.thermal;
-      metaDesign.textContent = data.meta.design;
-      metaAcoustic.textContent = data.meta.acoustic;
-      metaSecurity.textContent = data.meta.security;
-    } else {
-      toggleAlu.classList.add('active');
-      toggleUpvc.classList.remove('active');
-      const data = productsData.alu;
-      heroImage.src = data.image;
-      heroBadge.textContent = data.badge;
-      heroSeriesName.textContent = data.series;
-      heroStandardCode.textContent = data.standard;
-      metaThermal.textContent = data.meta.thermal;
-      metaDesign.textContent = data.meta.design;
-      metaAcoustic.textContent = data.meta.acoustic;
-      metaSecurity.textContent = data.meta.security;
+    if (isSwitching) return;
+    const isUpvc = type === 'upvc';
+    const activeBtn = isUpvc ? toggleUpvc : toggleAlu;
+    const inactiveBtn = isUpvc ? toggleAlu : toggleUpvc;
+
+    if (activeBtn?.classList.contains('active')) return;
+
+    isSwitching = true;
+    activeBtn?.classList.add('active');
+    inactiveBtn?.classList.remove('active');
+
+    const data = isUpvc ? productsData.upvc : productsData.alu;
+
+    // Smooth image crossfade
+    if (heroImage) {
+      heroImage.classList.add('fade-transition');
     }
+
+    setTimeout(() => {
+      if (heroImage) heroImage.src = data.image;
+      if (heroBadge) heroBadge.textContent = data.badge;
+      if (heroSeriesName) heroSeriesName.textContent = data.series;
+      if (heroStandardCode) heroStandardCode.textContent = data.standard;
+      if (metaThermal) metaThermal.textContent = data.meta.thermal;
+      if (metaDesign) metaDesign.textContent = data.meta.design;
+      if (metaAcoustic) metaAcoustic.textContent = data.meta.acoustic;
+      if (metaSecurity) metaSecurity.textContent = data.meta.security;
+
+      setTimeout(() => {
+        if (heroImage) {
+          heroImage.classList.remove('fade-transition');
+        }
+        isSwitching = false;
+      }, 60);
+    }, 220);
   }
 
   if (toggleUpvc && toggleAlu) {
@@ -120,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleAlu.addEventListener('click', () => setHeroProduct('alu'));
   }
 
-  // 4. Contact Form Submission & Static Site Notification Handler
+  // 7. Contact Form Submission & WhatsApp Notification Handlers
   const inquiryForm = document.getElementById('projectInquiryForm');
   const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
   const formStatus = document.getElementById('formStatusMsg');
@@ -129,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function getFormData() {
     return {
       name: document.getElementById('clientName')?.value.trim() || 'Prospective Client',
-      company: document.getElementById('clientCompany')?.value.trim() || 'Independent',
+      company: document.getElementById('clientCompany')?.value.trim() || 'Independent Practice',
       email: document.getElementById('clientEmail')?.value.trim() || 'Not provided',
       phone: document.getElementById('clientPhone')?.value.trim() || 'Not provided',
       city: document.getElementById('clientCity')?.value.trim() || 'Not specified',
@@ -145,14 +242,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = getFormData();
       const text = `*New Fenestration Inquiry - DURO WINDOWS*\n\n` +
                    `*Name:* ${data.name}\n` +
-                   `*Practice / Company:* ${data.company}\n` +
+                   `*Practice / Firm:* ${data.company}\n` +
                    `*Phone:* ${data.phone}\n` +
                    `*Email:* ${data.email}\n` +
                    `*City / Location:* ${data.city}\n` +
-                   `*System of Interest:* ${data.product.toUpperCase()}\n` +
-                   `*Project Stage:* ${data.stage}\n` +
+                   `*System of Interest:* ${data.product}\n` +
+                   `*Project Type / Stage:* ${data.stage}\n` +
                    `*Scope Details:* ${data.message}\n\n` +
-                   `_Sent via DURO Architectural Portal_`;
+                   `_Transmitted via DURO Architectural Portal_`;
 
       const targetPhone = '912049118800'; // DURO engineering WhatsApp helpline
       const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`;
@@ -163,7 +260,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // B. Standard Form Submission Handler (Supports Web3Forms / Formspree / Simulated Dispatch)
   if (inquiryForm) {
     inquiryForm.addEventListener('submit', async (e) => {
-      // If Web3Forms access key is still default placeholder, handle locally with friendly notification
       const accessKeyInput = inquiryForm.querySelector('input[name="access_key"]');
       const isDefaultKey = !accessKeyInput || accessKeyInput.value === 'YOUR_WEB3FORMS_ACCESS_KEY';
 
@@ -171,28 +267,29 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const submitBtn = inquiryForm.querySelector('button[type="submit"]');
         submitBtn.disabled = true;
-        submitBtn.textContent = 'TRANSMITTING SPECIFICATION...';
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>TRANSMITTING SPECIFICATION...</span>';
 
         setTimeout(() => {
           inquiryForm.reset();
           submitBtn.disabled = false;
-          submitBtn.textContent = 'PROPOSAL REQUEST TRANSMITTED ✓';
+          submitBtn.innerHTML = '<span>PROPOSAL REQUEST TRANSMITTED ✓</span>';
           submitBtn.style.backgroundColor = '#164e3e';
           submitBtn.style.borderColor = '#164e3e';
 
           if (formStatus) {
             formStatus.style.display = 'block';
-            formStatus.innerHTML = `<strong>Inquiry Received Successfully.</strong><br>Your technical requirements have been recorded. A fenestration specialist will deliver initial opening schedules within 24 business hours.`;
+            formStatus.innerHTML = `<strong>Inquiry Received Successfully.</strong><br>Your project requirements have been recorded. A fenestration specialist will deliver initial opening schedules and recommendations within 24 business hours.`;
           }
 
           setTimeout(() => {
-            submitBtn.textContent = 'SUBMIT SPECIFICATION REQUEST →';
+            submitBtn.innerHTML = originalText;
             submitBtn.style.backgroundColor = '';
             submitBtn.style.borderColor = '';
           }, 5000);
         }, 900);
       }
-      // Otherwise, form posts directly to Web3Forms and sends instant email to the owner!
+      // If configured with active key, submits directly via Web3Forms
     });
   }
 

@@ -169,9 +169,17 @@ button {
   height: var(--header-height);
   background-color: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.site-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(17, 22, 29, 0.07);
+  border-bottom-color: rgba(40, 150, 67, 0.25);
 }
 
 .header-inner {
@@ -380,6 +388,15 @@ button {
   box-sizing: border-box;
 }
 
+.btn .btn-arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
 .btn-primary {
   background-color: var(--color-primary);
   color: #ffffff;
@@ -560,11 +577,16 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.arch-frame-container:hover .arch-frame-image-wrapper img {
-  transform: scale(1.02);
+.arch-frame-image-wrapper img.fade-transition {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+.arch-frame-container:hover .arch-frame-image-wrapper img:not(.fade-transition) {
+  transform: scale(1.03);
 }
 
 /* Desktop Meta Bar */
@@ -624,6 +646,210 @@ button {
 .arch-frame-footer .series-name {
   font-weight: 700;
   color: var(--color-primary);
+}
+
+/* ==========================================================================
+   SCOPE OF WORK & TURNKEY CAPABILITIES
+   ========================================================================== */
+
+.scope-section {
+  padding: 5.5rem 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Process Flow Grid (5 Stages) */
+.process-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.process-card {
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  padding: 2.25rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--transition-smooth), border-color var(--transition-fast), box-shadow var(--transition-smooth), background-color var(--transition-fast);
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  background-color: #ffffff;
+  box-shadow: 0 16px 36px rgba(15, 56, 44, 0.08);
+}
+
+.process-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.process-icon {
+  font-size: 1.85rem;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  line-height: 1;
+}
+
+.process-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.process-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.process-tag {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-deep-forest);
+  background-color: var(--color-primary-light);
+  padding: 0.3rem 0.65rem;
+  border-radius: 2px;
+  align-self: flex-start;
+  border: 1px solid var(--color-primary-border);
+}
+
+/* Typology Showcase */
+.typology-showcase {
+  margin-top: 5rem;
+  padding-top: 4.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.typology-header {
+  margin-bottom: 2.75rem;
+}
+
+.h3-typology-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-weight: 600;
+  color: var(--color-dark);
+  letter-spacing: -0.015em;
+  margin-top: 0.35rem;
+}
+
+.typology-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+.typology-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth), border-color var(--transition-fast), box-shadow var(--transition-smooth);
+}
+
+.typology-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  box-shadow: 0 20px 40px rgba(15, 56, 44, 0.09);
+}
+
+.typology-img-box {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #11161d;
+}
+
+.typology-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.typology-card:hover .typology-img-box img {
+  transform: scale(1.06);
+}
+
+.typology-badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  background-color: rgba(17, 22, 29, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.65rem;
+  text-transform: uppercase;
+}
+
+.typology-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.typology-content h4 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.typology-content p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.typology-specs {
+  list-style: none;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.typology-specs li {
+  font-size: 0.78125rem;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.typology-specs li::before {
+  content: '✓';
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 0.85rem;
 }
 
 /* ==========================================================================
@@ -1305,18 +1531,31 @@ button {
   z-index: 99;
   background-color: #25D366;
   color: #ffffff;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
   transition: transform var(--transition-fast);
+  animation: pulseGlow 3.5s infinite;
 }
 
 .floating-whatsapp:hover {
-  transform: scale(1.08);
+  transform: scale(1.1);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  }
+  60% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }
 
 .back-to-top {
@@ -1326,8 +1565,8 @@ button {
   z-index: 99;
   background-color: var(--color-dark);
   color: #ffffff;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--color-dark-border);
   display: flex;
   align-items: center;
@@ -1346,6 +1585,49 @@ button {
 .back-to-top:hover {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   PROFESSIONAL ANIMATIONS & SCROLL REVEALS
+   ========================================================================== */
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+.reveal-up.is-visible,
+.reveal-fade.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Stagger Delays for Natural Editorial Sequencing */
+.delay-1 { transition-delay: 0.08s; }
+.delay-2 { transition-delay: 0.16s; }
+.delay-3 { transition-delay: 0.24s; }
+.delay-4 { transition-delay: 0.32s; }
+.delay-5 { transition-delay: 0.40s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .floating-whatsapp {
+    animation: none !important;
+  }
 }
 
 /* ==========================================================================
@@ -1376,13 +1658,23 @@ button {
     gap: 3.5rem;
   }
 
-  /* 4. Product Cards */
+  /* 4. Scope Section on Tablets */
+  .process-flow-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .typology-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* 5. Product Cards */
   .products-deck {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  /* 5. Pillars Grid on Tablets */
+  /* 6. Pillars Grid on Tablets */
   .pillars-grid {
     grid-template-columns: 1fr;
     border-right: 1px solid var(--color-border);
@@ -1396,7 +1688,7 @@ button {
     border-bottom: none;
   }
 
-  /* 6. Gallery on Tablets: 2 balanced columns */
+  /* 7. Gallery on Tablets: 2 balanced columns */
   .gallery-mosaic {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
@@ -1409,13 +1701,13 @@ button {
     aspect-ratio: 16 / 11;
   }
 
-  /* 7. Inquiry Suite Grid */
+  /* 8. Inquiry Suite Grid */
   .inquiry-suite-grid {
     grid-template-columns: 1fr;
     gap: 2.75rem;
   }
 
-  /* 8. Footer Columns */
+  /* 9. Footer Columns */
   .footer-columns {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
@@ -1430,12 +1722,23 @@ button {
   .hero-section {
     padding: 3rem 0 4rem;
   }
+  .scope-section,
   .products-section,
   .comparison-section,
   .pillars-section,
   .gallery-section,
   .inquiry-section {
-    padding: 4rem 0;
+    padding: 3.75rem 0;
+  }
+
+  /* Scope on Mobile */
+  .process-flow-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .typology-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .section-head-split {

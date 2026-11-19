@@ -12,14 +12,22 @@ A responsive, high-performance website designed for **DURO WINDOWS AND DOORS**. 
 
 ## Key Features
 
-- **Interactive Product Switcher**: Dynamically toggle between *German-profile uPVC* and *System Aluminium* in the hero section, updating live architectural imagery, DIN/EN standard badges, and thermal/acoustic performance metrics.
+- **Interactive Product Switcher**: Dynamically toggle between *German-profile uPVC* and *System Aluminium* in the hero section with smooth crossfade animations, updating live architectural imagery, performance badges, and living comfort metrics.
+- **Scope of Work & Turnkey Delivery Suite**:
+  - **5-Stage Turnkey Process**: Consultation & Aperture Survey → Bespoke CAD/BIM Detailing → Precision German Fabrication → Certified On-Site Master Installation → Quality Handover & Lifetime Care.
+  - **System Typologies Showcase**: Minimalist Sliding & Lift-and-Slide Patio Doors, Dual-Action Tilt & Turn Casement Windows, Fixed Architectural Glass Walls, and Grand Pivot Doors.
 - **Dedicated 2-Product Architecture**:
-  - **DURO uPVC Window Systems**: Multi-chamber insulation core, DIN EN 12608 Class A, Uw down to 0.82 W/m²K, up to 45 dB noise reduction.
-  - **DURO System Aluminium Windows**: 18mm ultra-slim interlocks, polyamide thermal breaks, up to 4.5m panel heights, 400kg sash capacity, and Class C5 wind resistance.
-- **Technical Comparison Matrix**: Objective side-by-side engineering table highlighting thermal, acoustic, sightline, dimensional, and climate durability parameters with a sticky benchmark column for mobile swiping.
+  - **DURO Precision uPVC Systems**: Multi-chamber acoustic and thermal core, up to 45 dB noise insulation, 100% non-corrosive, tropical UV stability.
+  - **DURO System Aluminium Windows**: 18mm ultra-slim interlocks, polyamide thermal breaks, up to 4.5m panel heights, 400kg sash capacity, and certified wind resistance.
+- **Architectural Comparison Matrix**: Clear side-by-side guide highlighting aesthetics, acoustics, thermal comfort, aperture spans, and ideal project applications.
+- **Professional Animation System**:
+  - Smooth scroll-triggered reveal animations via `IntersectionObserver` with editorial stagger delays.
+  - Animated number counters for key performance metrics.
+  - Sticky glassmorphic header with scroll elevation.
+  - Micro-interactions: card hover lifts, image zoom dynamics, and pulsing floating WhatsApp action.
 - **Consultation & Proposal Suite**:
   - Directly integrated contact channels (Direct line, WhatsApp helpdesk, engineering studio coordinates).
-  - Clean two-column quotation form with project stage selectors and scope notes.
+  - Clean two-column quotation form with refined project type/stage selectors and scope notes.
   - **Instant WhatsApp Dispatch**: Form inputs format automatically into an instant WhatsApp message sent directly to your phone.
   - **Web3Forms Pre-Configured**: Zero-backend form processing for static hosting (receives submissions directly in your email inbox).
 - **Fully Responsive Architecture**: Custom-engineered breakpoints for mobile phones (360px+), tablets (768px – 1080px), and wide desktop displays. Includes a slide-out mobile drawer menu.
